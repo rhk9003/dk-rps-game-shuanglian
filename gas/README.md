@@ -1,4 +1,4 @@
-# DK 府中店滿月 · GAS 後端部署指南
+# DK 雙連店 · GAS 後端部署指南
 
 此資料夾包含猜拳遊戲的後端（Google Apps Script）與 Google Sheet 模板說明。
 
@@ -22,7 +22,7 @@
 
 ### 1. 建立 Google Sheet
 1. 到 [sheets.google.com](https://sheets.google.com) 新建空白 Sheet
-2. 命名：`DK府中店_猜拳紀錄_20260417`（或你喜歡的名字）
+2. 命名：`DK雙連店_猜拳紀錄_20260518`（或你喜歡的名字）
 3. 從網址複製 **Sheet ID**：
    ```
    https://docs.google.com/spreadsheets/d/★這一段★/edit

@@ -1,5 +1,5 @@
 """
-DK 府中店 - 猜拳拿好禮 閨密機遊戲
+DK 雙連店 - 猜拳拿好禮 閨密機遊戲
 Streamlit 封裝版 - 用於團隊測試
 """
 import streamlit as st
@@ -8,7 +8,7 @@ from pathlib import Path
 
 # ====== 頁面設定 ======
 st.set_page_config(
-    page_title="DK 府中店 - 猜拳拿好禮",
+    page_title="DK 雙連店 - 猜拳拿好禮",
     page_icon="✊",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -95,4 +95,4 @@ with st.sidebar:
     """)
 
     st.markdown("---")
-    st.caption("Powered by DK 府中店")
+    st.caption("Powered by DK 雙連店")
