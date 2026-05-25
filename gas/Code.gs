@@ -237,7 +237,10 @@ function _toDateStr(v) {
   if (v instanceof Date) {
     return Utilities.formatDate(v, TZ, 'yyyy-MM-dd');
   }
-  return String(v);
+  // draw 寫入時加了 ' 前綴強制文字，某些情況 Sheets 會把它當成真實字元存進儲存格，
+  // 讀回來變成 "'2026-04-22"，跟 _today() 的 "2026-04-22" 永遠對不上 → check 擋不住重玩。
+  // 這裡統一去掉開頭的 ' 與前後空白，確保日期比對正確。
+  return String(v).replace(/^'/, '').trim();
 }
 
 function _makeCode() {
