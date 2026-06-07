@@ -1512,11 +1512,14 @@ async function spinWheel() {
                     drawnPrize = prizes[idx];
                     drawnCode = data.code || '';
                 } else {
-                    // 伺服器回傳的獎項前端找不到（通常是 fallback）
-                    // 直接用伺服器回傳的資料，winIndex 隨機落一個視覺上的
+                    // 伺服器回傳的獎項 id 不在前端獎池 → 多半是後端 GAS 還沒重新部署、
+                    // 仍含已下架的獎項（例如舊的 A0003 石墨烯袖套）。
+                    // 絕不可把這個未知獎項顯示給客人（會送出已移除的獎品 / 沒有領獎 QR），
+                    // 改抽一個本地有效獎項當保險。根本解仍是重新部署 gas/Code.gs（見 HANDOFF）。
+                    console.warn('GAS 回傳未知獎項 id，改用本地獎項:', data.prize);
                     winIndex = _localDraw(prizes);
-                    drawnPrize = { name: data.prize.name, id: data.prize.id };
-                    drawnCode = data.code || '';
+                    drawnPrize = prizes[winIndex];
+                    drawnCode = '';
                 }
             } else {
                 console.warn('GAS draw returned error, fallback to local', data);
